@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="container">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="description">{{ .Site.Params.description }}</p>
+    
+    <h2>最新文章</h2>
+    <div class="post-list">
+        {{ range first 10 .Site.RegularPages }}
+        <article class="post-item">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <time>{{ .Date.Format "2006-01-02" }}</time>
+            <p>{{ .Summary }}</p>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
